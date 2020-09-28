@@ -1,9 +1,13 @@
 {
-	"name": "snippet-sample",
-	"displayName": "Snippet Sample",
-	"description": "Snippet Sample",
-	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"name": "bash-cli-snippets",
+	"displayName": "Bash CLI Snippets",
+	"description": "VScode Snippets for making command line interfaces using only bash and gnu coreutils.",
+	"version": "1.0.0",
+	"publisher": "designbyajay",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/designbyajay/vscode-bash-cli-snippets.git"
+	},
 	"engines": {
 		"vscode": "^1.28.0"
 	},
@@ -13,7 +17,7 @@
 	"contributes": {
 		"snippets": [
 			{
-				"language": "javascript",
+				"language": "shellscript",
 				"path": "./snippets.json"
 			}
 		]
