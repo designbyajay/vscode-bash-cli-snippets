@@ -2,7 +2,7 @@
 	"name": "bash-cli-snippets",
 	"displayName": "Bash CLI Snippets",
 	"description": "VScode Snippets for making command line interfaces using only bash and gnu coreutils.",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"publisher": "designbyajay",
 	"repository": {
 		"type": "git",
