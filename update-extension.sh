@@ -179,7 +179,6 @@ do
             done
             PS3=$PS3_OLD
             unset PS3_OLD
-            vsce publish minor
             break
         ;;
         *)
