@@ -130,22 +130,59 @@ increment-version-and-publish () {
 
 printf "\n\nDo you want to publish a major version release, a minor version release or a patch?\n" | fold -w $(tput cols) 1>&2
 
-PS3_OLD=PS3 # This preserves whatever the value of the bash builtin environment variable PS3 was.
+PS3_OLD=PS3
 PS3=$'\n'"pick option 1, 2 or 3: "
 
-select VERSION in "major" "minor" "patch";    # ← the first argument should be a variable name for an item, and the second argument should be an array of items
+select VERSION in "major" "minor" "patch";
 do
     
     case $VERSION in
         "major" )
-            vsce publish major
+            printf "\nAre you \e[1mabsolutely sure\e[0m you want to increment the \e[1mmajor\e[0m version?\n" | fold -w $(tput cols) 1>&2
+            
+            PS3_OLD=PS3
+            PS3=$'\n'"choose 1 or 2: " 
+            
+            select OPTION in "Yes", "No";
+            do
+                
+                if [ $OPTION = "Yes" ]
+                then
+                    vsce publish major
+                else
+                    increment-version-and-publish
+                fi
+                
+                break   
+            done
+            PS3=$PS3_OLD
+            unset PS3_OLD
             break
         ;;    
         "minor" )
+            printf "\nAre you \e[1msure\e[0m you want to increment the \e[1mminor\e[0m version?\n" | fold -w $(tput cols) 1>&2
+            
+            PS3_OLD=PS3 
+            PS3=$'\n'"choose 1 or 2: "
+            
+            select OPTION in "Yes", "No";
+            do
+                
+                if [ $OPTION = "Yes" ]
+                then
+                    vsce publish minor
+                else
+                    increment-version-and-publish
+                fi
+                
+                break
+            done
+            PS3=$PS3_OLD
+            unset PS3_OLD
             vsce publish minor
             break
         ;;
-        *) # This catches all cases that weren't previously listed. That's why it has the wildcard "*" operator.
+        *)
             vsce publish patch
             break
         ;;
