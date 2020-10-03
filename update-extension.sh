@@ -143,7 +143,7 @@ do
             PS3_OLD=PS3
             PS3=$'\n'"choose 1 or 2: " 
             
-            select OPTION in "Yes", "No";
+            select OPTION in "Yes" "No";
             do
                 
                 if [ $OPTION = "Yes" ]
