@@ -759,7 +759,7 @@
 			"",
 			"\tfi",
 			"",
-			"\tif [[ \"\\$RESOLVED_PATH\" =~ ^([^/])*$ ]]",
+			"\tif [[ \"\\$RESOLVED_PATH\" =~ ^([^./])*$ ]]",
 			"\tthen",
 			"\t\tADD_DOT_SLASH=\"./\"",
 			"\t\tADD_DOT_SLASH+=\"\\$RESOLVED_PATH\"",
